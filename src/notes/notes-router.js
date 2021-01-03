@@ -27,7 +27,7 @@ notesRouter
     })
     .post(jsonParser, (req, res, next) => {
         
-        const { folderId, name, content } = req.body
+        const { folderId, name, content, modified } = req.body
         const newNote = { folderId, name, content }
 
         for (const [key, value] of Object.entries(newNote)) {
@@ -37,6 +37,8 @@ notesRouter
                 })
             }
         }
+
+        newNote.modified = modified
 
         notesService.insertNote(
             req.app.get('db'),
@@ -83,7 +85,7 @@ notesRouter
             .catch(next)
     })
     .patch(jsonParser, (req, res, next) => {
-        const { folderId, name, content } = req.body
+        const { folderId, name, content, modified } = req.body
         const noteToUpdate = { folderId, name, content }
     
         const numberOfValues = Object.values(noteToUpdate).filter(Boolean).length
@@ -92,7 +94,9 @@ notesRouter
             error: {
               message: `Request body must contain a 'name', 'content', and 'folder'.`
             }
-          })
+        })
+
+        noteToUpdate.modified = modified
     
         notesService.updateNote(
           req.app.get('db'),
