@@ -8,7 +8,7 @@
     "dev": "nodemon src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:test": "env NODE_ENV=test npm run migrate",
-    "migrate:production": "heroku run npm run migrate & PGSSLMODE=no-verify",
+    "migrate:production": "heroku run npm run migrate",
     "start": "node src/server.js",
     "deploy": "git push heroku main",
     "postdeploy": "npm run migrate:production"
@@ -23,7 +23,7 @@
     "helmet": "^4.2.0",
     "knex": "^0.21.13",
     "morgan": "^1.10.0",
-    "pg": "^8.5.1",
+    "pg": "^7.18.2",
     "postgrator-cli": "^3.2.0",
     "xss": "^1.0.8"
   },
