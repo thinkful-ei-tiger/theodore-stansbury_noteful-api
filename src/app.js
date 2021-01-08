@@ -1,4 +1,6 @@
 require('dotenv').config()
+const pg = require('pg')
+pg.defaults.ssl = process.env.NODE_ENV === "production"
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
