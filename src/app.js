@@ -33,7 +33,6 @@ app.use(function errorHandler(error, req, res, next) {
     } else {
         response = {message: error.message, error}
     }
-    console.error(error)
     res.status(500).json(response)
 })
 
