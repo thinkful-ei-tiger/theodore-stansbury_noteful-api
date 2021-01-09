@@ -35,7 +35,7 @@ foldersRouter
             }
         }
 
-        foldersService.insertfolder(
+        foldersService.insertFolder(
             req.app.get('db'),
             newFolder
         )
@@ -70,7 +70,7 @@ foldersRouter
         res.json(serializeFolder(res.folder))
     })
     .delete((req, res, next) => {
-        foldersService.deletefolder(
+        foldersService.deleteFolder(
             req.app.get('db'),
             req.params.folderId
         )
@@ -91,7 +91,7 @@ foldersRouter
             }
           })
     
-        foldersService.updatefolder(
+        foldersService.updateFolder(
           req.app.get('db'),
           req.params.folderId,
           folderToUpdate

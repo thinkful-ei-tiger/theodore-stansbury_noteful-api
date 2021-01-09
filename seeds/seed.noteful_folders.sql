@@ -1,4 +1,4 @@
-INSERT INTO noteful_folders (name)
+INSERT INTO folders (name)
     VALUES 
         ('Creatures'),
         ('Music'),
